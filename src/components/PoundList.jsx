@@ -1,5 +1,5 @@
-import React from "react";
 import PoundCard from "./PoundCard";
+import PropTypes from "prop-types";
 
 function PoundList({ pounds }) {
   return (
@@ -10,5 +10,9 @@ function PoundList({ pounds }) {
     </div>
   );
 }
+
+PoundList.propTypes = {
+  pounds: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default PoundList;

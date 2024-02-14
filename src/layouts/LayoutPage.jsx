@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 function LayoutPage({ children }) {
   return (
@@ -7,5 +7,9 @@ function LayoutPage({ children }) {
     </div>
   );
 }
+
+LayoutPage.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default LayoutPage;

@@ -1,5 +1,3 @@
-import { data } from "autoprefixer";
-
 const api = (() => {
   const BASE_URL = "https://forum-api.dicoding.dev/v1";
 

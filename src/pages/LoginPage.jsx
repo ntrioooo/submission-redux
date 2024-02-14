@@ -1,8 +1,7 @@
-import React from "react";
 import Image1 from "../assets/images/image-1.png";
 import LoginInput from "../components/LoginInput";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { asyncSetAuthUser } from "../states/authUser/action";
 
 function LoginPage() {

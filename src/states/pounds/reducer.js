@@ -10,17 +10,17 @@ function poundsReducer(pounds = [], action = {}) {
       return action.payload.pounds;
     case ActionType.ADD_POUND:
       return [action.payload.pound, ...pounds];
-    case ActionType.TOGGLE_LIKE_TALK:
-      return talks.map((talk) => {
-        if (talk.id === action.payload.talkId) {
+    case ActionType.TOGGLE_LIKE_POUND:
+      return pounds.map((pound) => {
+        if (pound.id === action.payload.poundId) {
           return {
-            ...talk,
-            likes: talk.likes.includes(action.payload.userId)
-              ? talk.likes.filter((id) => id !== action.payload.userId)
-              : talk.likes.concat([action.payload.userId]),
+            ...pound,
+            likes: pound.likes.includes(action.payload.userId)
+              ? pound.likes.filter((id) => id !== action.payload.userId)
+              : pound.likes.concat([action.payload.userId]),
           };
         }
-        return talk;
+        return pound;
       });
     default:
       return pounds;

@@ -19,8 +19,8 @@ function PoundDetailPage() {
 
   const onPoundComment = ({ content }) => {
     dispatch(asyncAddComment({ content, poundId: id }));
-    dispatch(asyncReceivePoundDetail(id));
     console.log("Added comment", content, id);
+    dispatch(asyncReceivePoundDetail(id));
   };
 
   console.log(poundDetail);

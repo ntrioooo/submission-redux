@@ -1,10 +1,9 @@
-import React from "react";
 import { postedAt } from "../utils";
-import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
 import { asyncToggleUpVotePoundDetail } from "../states/poundDetail/action";
 function PoundDetail({
   body,
-  category,
   title,
   id,
   totalComments,
@@ -15,20 +14,25 @@ function PoundDetail({
   owner,
 }) {
   const dispatch = useDispatch();
-  const isUpVotePoundDetail = upVotesBy.includes(authUser);
+  const isUpVotePoundDetail = useSelector((state) =>
+    state.poundDetail.upVotesBy.includes(authUser)
+  );
   const onToggleUpVote = () => {
-    dispatch(asyncToggleUpVotePoundDetail);
-    console.log("clicked");
+    dispatch(asyncToggleUpVotePoundDetail(id));
+    console.log("clicked", id);
   };
 
   return (
     <div>
-      <div
-        className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-800 p-4 mt-3 rounded-xl border mx-auto"
-        // onClick={onPoundClick}
-      >
+      <div className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-800 p-4 mt-3 rounded-xl border mx-auto">
         <div className="flex justify-between">
           <div className="flex items-center">
+            <img
+              src={owner.avatar}
+              alt={owner.name}
+              className="rounded-full w-7 mr-2"
+            />
+
             <div className="text-sm leading-tight">
               <span className="text-black dark:text-white font-bold block ">
                 {owner.name}
@@ -63,5 +67,18 @@ function PoundDetail({
     </div>
   );
 }
+
+PoundDetail.propTypes = {
+  body: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  totalComments: PropTypes.number.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  authUser: PropTypes.object,
+  owner: PropTypes.object.isRequired,
+};
 
 export default PoundDetail;

@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
-import LayoutPage from "./layouts/LayoutPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { asyncPreloadProcess } from "./states/isPreload/action";

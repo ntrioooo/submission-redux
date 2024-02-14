@@ -1,5 +1,5 @@
-import React from "react";
 import useInput from "../hooks/useInput";
+import PropTypes from "prop-types";
 
 function RegisterInput({ register }) {
   const [email, onEmailChange] = useInput("");
@@ -70,5 +70,9 @@ function RegisterInput({ register }) {
     </form>
   );
 }
+
+RegisterInput.propTypes = {
+  register: PropTypes.func.isRequired,
+};
 
 export default RegisterInput;

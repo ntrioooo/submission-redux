@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 
 function PoundInput({ poundTweet }) {
@@ -58,5 +58,9 @@ function PoundInput({ poundTweet }) {
     </div>
   );
 }
+
+PoundInput.propTypes = {
+  poundTweet: PropTypes.func.isRequired,
+};
 
 export default PoundInput;

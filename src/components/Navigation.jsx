@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function Navigation() {
+function Navigation({ signOut, authUser }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  //   const { id, name } = authUser;
+
+  const { name, avatar } = authUser;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -69,11 +70,29 @@ function Navigation() {
                 Tweet
               </Link>
             </li>
+            <li className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer">
+              <div className="flex">
+                <img
+                  src={avatar}
+                  alt={name}
+                  className="rounded-full w-5 mr-2"
+                />
+                {name}
+              </div>
+            </li>
+            <li className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+              <button onClick={signOut}>Logout</button>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
   );
 }
+
+Navigation.propTypes = {
+  authUser: PropTypes.object.isRequired,
+  signOut: PropTypes.func.isRequired,
+};
 
 export default Navigation;

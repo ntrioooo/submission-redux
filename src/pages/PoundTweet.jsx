@@ -1,4 +1,3 @@
-import React from "react";
 import PoundInput from "../components/PoundInput";
 import LayoutPage from "../layouts/LayoutPage";
 import { useDispatch } from "react-redux";

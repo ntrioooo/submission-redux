@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
 function CommentInput({ commentPound }) {
   const [content, setContent] = useState("");
@@ -34,9 +35,12 @@ function CommentInput({ commentPound }) {
       >
         Pound Comment
       </button>
-      
     </div>
   );
 }
+
+CommentInput.propTypes = {
+  commentPound: PropTypes.func.isRequired,
+};
 
 export default CommentInput;

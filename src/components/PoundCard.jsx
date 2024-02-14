@@ -1,14 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { postedAt } from "../utils/index";
-import { useDispatch } from "react-redux";
-import { asyncToggleUpVotePoundDetail } from "../states/poundDetail/action";
 
 function PoundCard({
-  name,
+  user,
   body,
-  category,
   title,
   id,
   totalComments,
@@ -25,9 +21,14 @@ function PoundCard({
     <div className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-800 p-4 mt-3 rounded-xl border mx-auto">
       <div className="flex justify-between">
         <div className="flex items-center">
-          <div className="ml-1.5 text-sm leading-tight">
+          <img
+            src={user.avatar}
+            alt={user.name}
+            className="rounded-full w-7 mr-2"
+          />
+          <div className="text-sm leading-tight">
             <span className="text-black dark:text-white font-bold block ">
-              {name}
+              {user.name}
             </span>
           </div>
         </div>
@@ -59,12 +60,15 @@ function PoundCard({
 }
 
 PoundCard.propTypes = {
-  //   id: PropTypes.string.isRequired,
-  //   poundTweet: PropTypes.string.isRequired,
-  //   createdAt: PropTypes.string.isRequired,
-  //   name: PropTypes.string.isRequired,
-  //   username: PropTypes.string.isRequired,
-  //   likes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  user: PropTypes.object.isRequired,
+  body: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  totalComments: PropTypes.number.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  owner: PropTypes.string.isRequired,
 };
 
 export default PoundCard;
