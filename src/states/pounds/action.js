@@ -2,6 +2,7 @@
  * @TODO: Define all the actions (creator) for the talks state
  */
 
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import api from '../../utils/api';
 
 const ActionType = {
@@ -40,12 +41,14 @@ function toggleLikePoundActionCreator({ poundId, userId }) {
 
 function asyncAddPound({ title, body, category = '' }) {
   return async (dispatch) => {
+    dispatch(showLoading());
     try {
       const pound = await api.createPound({ title, body, category });
       dispatch(addPoundActionCreator(pound));
     } catch (error) {
       alert(error.message);
     }
+    dispatch(hideLoading());
   };
 }
 
@@ -53,13 +56,14 @@ function asyncToogleLikePound(poundId) {
   return async (dispatch, getState) => {
     const { authUser } = getState();
     dispatch(toggleLikePoundActionCreator({ poundId, userId: authUser.id }));
-
+    dispatch(showLoading());
     try {
       await api.toggleLikePound(poundId);
     } catch (error) {
       alert(error.message);
       dispatch(toggleLikePoundActionCreator({ poundId, userId: authUser.id }));
     }
+    dispatch(hideLoading());
   };
 }
 

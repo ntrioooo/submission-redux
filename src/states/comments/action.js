@@ -1,3 +1,4 @@
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import api from '../../utils/api';
 
 const ActionType = {
@@ -48,6 +49,7 @@ function toggleNeutralVoteCommentActionCreator({ commentId, userId }) {
 
 function asyncAddComment({ content, poundId }) {
   return async (dispatch) => {
+    dispatch(showLoading());
     try {
       const newComment = await api.createComment({ content, poundId });
       dispatch(addCommentActionCreator(newComment));
@@ -55,6 +57,7 @@ function asyncAddComment({ content, poundId }) {
     } catch (error) {
       alert(error.message);
     }
+    dispatch(hideLoading());
   };
 }
 
