@@ -9,6 +9,7 @@ import { asyncPreloadProcess } from './states/isPreload/action';
 import { asyncUnsetAuthUser } from './states/authUser/action';
 import PoundTweet from './pages/PoundTweet';
 import PoundDetailPage from './pages/PoundDetailPage';
+import Loading from './components/Loading';
 
 function App() {
   const { authUser = null, isPreload = false } = useSelector(
@@ -35,6 +36,7 @@ function App() {
   if (authUser === null) {
     return (
       <main>
+        <Loading />
         <Routes>
           <Route path="/*" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -45,6 +47,7 @@ function App() {
 
   return (
     <>
+      <Loading />
       <header>
         <Navigation authUser={authUser} signOut={onSignOut} />
       </header>

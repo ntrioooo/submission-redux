@@ -18,6 +18,7 @@
         "react/require-default-props": "off",
         "react/forbid-prop-types": "off",
         "no-underscore-dangle": "off",
-        "no-use-before-define": "off"
+        "no-use-before-define": "off",
+        "import/no-extraneous-dependencies": "off"
     }
 }
