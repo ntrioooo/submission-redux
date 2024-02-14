@@ -2,12 +2,12 @@
  * @TODO: Define all the actions (creator) for the talks state
  */
 
-import api from "../../utils/api";
+import api from '../../utils/api';
 
 const ActionType = {
-  RECEIVE_POUNDS: "RECEIVE_POUNDS",
-  ADD_POUND: "ADD_POUND",
-  TOGGLE_LIKE_POUND: "TOGGLE_LIKE_POUND",
+  RECEIVE_POUNDS: 'RECEIVE_POUNDS',
+  ADD_POUND: 'ADD_POUND',
+  TOGGLE_LIKE_POUND: 'TOGGLE_LIKE_POUND',
 };
 
 function receivePoundsActionCreator(pounds) {
@@ -38,7 +38,7 @@ function toggleLikePoundActionCreator({ poundId, userId }) {
   };
 }
 
-function asyncAddPound({ title, body, category = ''}) {
+function asyncAddPound({ title, body, category = '' }) {
   return async (dispatch) => {
     try {
       const pound = await api.createPound({ title, body, category });

@@ -1,8 +1,8 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function CommentInput({ commentPound }) {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState('');
 
   const commentPoundHandler = (event) => {
     setContent(event.target.value);
@@ -11,7 +11,7 @@ function CommentInput({ commentPound }) {
   const addCommentPound = () => {
     if (content.trim()) {
       commentPound({ content });
-      setContent("");
+      setContent('');
     }
   };
 

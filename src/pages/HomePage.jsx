@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import PoundList from "../components/PoundList";
-import { asyncPopulateUsersAndPounds } from "../states/shared/action";
-import LayoutPage from "../layouts/LayoutPage";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import PoundList from '../components/PoundList';
+import asyncPopulateUsersAndPounds from '../states/shared/action';
+import LayoutPage from '../layouts/LayoutPage';
 
 function HomePage() {
   const { pounds = [], users = [], authUser } = useSelector((states) => states);

@@ -2,9 +2,9 @@
  * @TODO: Define all the actions (creator) that uses a combination of actions from various domain
  */
 
-import api from "../../utils/api";
-import { receivePoundsActionCreator } from "../pounds/action";
-import { receiveUsersActionCreator } from "../users/action";
+import api from '../../utils/api';
+import { receivePoundsActionCreator } from '../pounds/action';
+import { receiveUsersActionCreator } from '../users/action';
 
 function asyncPopulateUsersAndPounds() {
   return async (dispatch) => {
@@ -22,4 +22,4 @@ function asyncPopulateUsersAndPounds() {
   };
 }
 
-export { asyncPopulateUsersAndPounds };
+export default asyncPopulateUsersAndPounds;

@@ -2,10 +2,10 @@
  * @TODO: Define all the actions (creator) for the users state
  */
 
-import api from "../../utils/api";
+import api from '../../utils/api';
 
 const ActionType = {
-  RECEIVE_USERS: "RECEIVE_USERS",
+  RECEIVE_USERS: 'RECEIVE_USERS',
 };
 
 function receiveUsersActionCreator(users) {

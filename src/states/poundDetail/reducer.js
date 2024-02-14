@@ -2,7 +2,7 @@
  * @TODO: Define reducer for the talkDetail state
  */
 
-import { ActionType } from "./action";
+import { ActionType } from './action';
 
 function poundDetailReducer(poundDetail = null, action = {}) {
   let userId;

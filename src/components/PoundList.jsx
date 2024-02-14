@@ -1,5 +1,6 @@
-import PoundCard from "./PoundCard";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import PoundCard from './PoundCard';
 
 function PoundList({ pounds }) {
   return (
@@ -12,7 +13,19 @@ function PoundList({ pounds }) {
 }
 
 PoundList.propTypes = {
-  pounds: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pounds: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+      createdAt: PropTypes.string.isRequired,
+      ownerId: PropTypes.string.isRequired,
+      totalComments: PropTypes.number,
+      upVoteBy: PropTypes.array,
+      downVoteBy: PropTypes.array,
+    }),
+  ).isRequired,
 };
 
 export default PoundList;

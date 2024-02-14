@@ -1,8 +1,9 @@
-import Image1 from "../assets/images/image-1.png";
-import RegisterInput from "../components/RegisterInput";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { asyncRegisterUser } from "../states/users/action";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import Image1 from '../assets/images/image-1.png';
+import RegisterInput from '../components/RegisterInput';
+import { asyncRegisterUser } from '../states/users/action';
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function RegisterPage() {
   const onRegister = ({ name, email, password }) => {
     dispatch(asyncRegisterUser({ email, name, password }));
 
-    navigate("/");
+    navigate('/');
   };
   return (
     <div className="flex items-center">
@@ -19,7 +20,8 @@ function RegisterPage() {
         <h1 className="text-3xl font-bold mb-4">Sign up to your account</h1>
         <RegisterInput register={onRegister} />
         <p className="text-sm font-light text-gray-700 dark:text-gray-400 mt-3">
-          Already have an account?{" "}
+          Already have an account?
+          {' '}
           <Link
             to="/login"
             className="font-medium text-primary-600 hover:underline dark:text-primary-500"

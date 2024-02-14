@@ -1,20 +1,20 @@
-import useInput from "../hooks/useInput";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import useInput from '../hooks/useInput';
 
 function RegisterInput({ register }) {
-  const [email, onEmailChange] = useInput("");
-  const [name, onNameChange] = useInput("");
-  const [password, onPasswordChange] = useInput("");
+  const [email, onEmailChange] = useInput('');
+  const [name, onNameChange] = useInput('');
+  const [password, onPasswordChange] = useInput('');
 
   return (
     <form className="flex flex-col">
       <div className="mb-4">
-        <label
-          htmlFor="name"
+        <div
           className="block text-sm font-medium text-gray-600"
         >
           Name
-        </label>
+        </div>
         <input
           type="text"
           value={name}
@@ -25,12 +25,11 @@ function RegisterInput({ register }) {
         />
       </div>
       <div className="mb-4">
-        <label
-          htmlFor="Email"
+        <div
           className="block text-sm font-medium text-gray-600"
         >
           Email
-        </label>
+        </div>
         <input
           type="email"
           value={email}
@@ -42,12 +41,11 @@ function RegisterInput({ register }) {
       </div>
 
       <div className="mb-4">
-        <label
-          htmlFor="password"
+        <div
           className="block text-sm font-medium text-gray-600"
         >
           Password
-        </label>
+        </div>
         <input
           type="password"
           value={password}

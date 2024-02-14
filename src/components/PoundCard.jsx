@@ -1,6 +1,7 @@
-import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
-import { postedAt } from "../utils/index";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import postedAt from '../utils/index';
 
 function PoundCard({
   user,
@@ -43,16 +44,27 @@ function PoundCard({
         {body}
       </p>
       <p className="text-gray-500 dark:text-gray-400 text-base py-1 my-0.5 text-right">
-        {postedAt(createdAt)}{" "}
+        {postedAt(createdAt)}
+        {' '}
       </p>
-      <div className="border-gray-200 dark:border-gray-600 border border-b-0 my-1"></div>
+      <div className="border-gray-200 dark:border-gray-600 border border-b-0 my-1" />
       <div className="text-gray-500 dark:text-gray-400 flex mt-3">
         <div className="flex items-center mr-6">
           <p className="text-gray-500 dark:text-gray-400 text-base py-1 my-0.5">
-            {totalComments} Comments
+            {totalComments}
+            {' '}
+            Comments
           </p>
-          <span className="ml-3 cursor-pointer">{upVotesBy.length} Like</span>
-          <span className="ml-3">{downVotesBy.length} Dislike</span>
+          <span className="ml-3 cursor-pointer">
+            {upVotesBy.length}
+            {' '}
+            Like
+          </span>
+          <span className="ml-3">
+            {downVotesBy.length}
+            {' '}
+            Dislike
+          </span>
         </div>
       </div>
     </div>
@@ -60,7 +72,10 @@ function PoundCard({
 }
 
 PoundCard.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+  }).isRequired,
   body: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -68,7 +83,6 @@ PoundCard.propTypes = {
   createdAt: PropTypes.string.isRequired,
   upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
   downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
-  owner: PropTypes.string.isRequired,
 };
 
 export default PoundCard;

@@ -3,7 +3,7 @@
  */
 
 import { ActionType } from './action';
- 
+
 function usersReducer(users = [], action = {}) {
   switch (action.type) {
     case ActionType.RECEIVE_USERS:
@@ -12,5 +12,5 @@ function usersReducer(users = [], action = {}) {
       return users;
   }
 }
- 
+
 export default usersReducer;

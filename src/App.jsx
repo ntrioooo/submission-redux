@@ -1,17 +1,18 @@
-import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import Navigation from "./components/Navigation";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import { asyncPreloadProcess } from "./states/isPreload/action";
-import { asyncUnsetAuthUser } from "./states/authUser/action";
-import PoundTweet from "./pages/PoundTweet";
-import PoundDetailPage from "./pages/PoundDetailPage";
+import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import Navigation from './components/Navigation';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import { asyncPreloadProcess } from './states/isPreload/action';
+import { asyncUnsetAuthUser } from './states/authUser/action';
+import PoundTweet from './pages/PoundTweet';
+import PoundDetailPage from './pages/PoundDetailPage';
+
 function App() {
   const { authUser = null, isPreload = false } = useSelector(
-    (states) => states
+    (states) => states,
   );
 
   const dispatch = useDispatch();
@@ -33,14 +34,12 @@ function App() {
 
   if (authUser === null) {
     return (
-      <>
-        <main>
-          <Routes>
-            <Route path="/*" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-          </Routes>
-        </main>
-      </>
+      <main>
+        <Routes>
+          <Route path="/*" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Routes>
+      </main>
     );
   }
 

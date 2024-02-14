@@ -1,4 +1,4 @@
-import { ActionType } from "./action";
+import { ActionType } from './action';
 
 function commentsReducer(comments = [], action = {}) {
   switch (action.type) {

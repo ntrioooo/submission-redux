@@ -1,7 +1,9 @@
-import { postedAt } from "../utils";
-import PropTypes from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
-import { asyncToggleUpVotePoundDetail } from "../states/poundDetail/action";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import postedAt from '../utils';
+import { asyncToggleUpVotePoundDetail } from '../states/poundDetail/action';
+
 function PoundDetail({
   body,
   title,
@@ -14,12 +16,11 @@ function PoundDetail({
   owner,
 }) {
   const dispatch = useDispatch();
-  const isUpVotePoundDetail = useSelector((state) =>
-    state.poundDetail.upVotesBy.includes(authUser)
-  );
+  const isUpVotePoundDetailSelector = (state) => state.poundDetail.upVotesBy.includes(authUser);
+
+  const isUpVotePoundDetail = useSelector(isUpVotePoundDetailSelector);
   const onToggleUpVote = () => {
     dispatch(asyncToggleUpVotePoundDetail(id));
-    console.log("clicked", id);
   };
 
   return (
@@ -45,22 +46,39 @@ function PoundDetail({
           {body}
         </p>
         <p className="text-gray-500 dark:text-gray-400 text-base py-1 my-0.5 text-right">
-          {postedAt(createdAt)}{" "}
+          {postedAt(createdAt)}
+          {' '}
         </p>
-        <div className="border-gray-200 dark:border-gray-600 border border-b-0 my-1"></div>
+        <div className="border-gray-200 dark:border-gray-600 border border-b-0 my-1" />
         <div className="text-gray-500 dark:text-gray-400 flex mt-3">
           <div className="flex items-center mr-6">
             <p className="text-gray-500 dark:text-gray-400 text-base py-1 my-0.5">
-              {totalComments} Comments
+              {totalComments}
+              {' '}
+              Comments
             </p>
             <span className="ml-3 cursor-pointer" onClick={onToggleUpVote}>
               {isUpVotePoundDetail ? (
-                <span className="text-blue-500">{upVotesBy.length} Like </span>
+                <span className="text-blue-500">
+                  {upVotesBy.length}
+                  {' '}
+                  Like
+                  {' '}
+                </span>
               ) : (
-                <span className="text-gray-500">{upVotesBy.length} Like </span>
+                <span className="text-gray-500">
+                  {upVotesBy.length}
+                  {' '}
+                  Like
+                  {' '}
+                </span>
               )}
             </span>
-            <span className="ml-3">{downVotesBy.length} Dislike</span>
+            <span className="ml-3">
+              {downVotesBy.length}
+              {' '}
+              Dislike
+            </span>
           </div>
         </div>
       </div>
@@ -70,15 +88,20 @@ function PoundDetail({
 
 PoundDetail.propTypes = {
   body: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  totalComments: PropTypes.number.isRequired,
+  totalComments: PropTypes.number,
   createdAt: PropTypes.string.isRequired,
   upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
   downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
-  authUser: PropTypes.object,
-  owner: PropTypes.object.isRequired,
+  authUser: PropTypes.shape({
+    name: PropTypes.string,
+    avatar: PropTypes.string,
+  }),
+  owner: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default PoundDetail;

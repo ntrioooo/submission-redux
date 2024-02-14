@@ -1,10 +1,10 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function PoundInput({ poundTweet }) {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [category, setCategory] = useState("");
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [category, setCategory] = useState('');
 
   const onTitleHandler = (event) => {
     setTitle(event.target.value);
@@ -18,9 +18,9 @@ function PoundInput({ poundTweet }) {
 
   const addPoundTweet = () => {
     poundTweet({ title, body, category });
-    setTitle("");
-    setBody("");
-    setCategory("");
+    setTitle('');
+    setBody('');
+    setCategory('');
     // alert("Tweet berhasil ditambah");
   };
 

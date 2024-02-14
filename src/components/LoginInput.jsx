@@ -1,18 +1,14 @@
-import useInput from "../hooks/useInput";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import useInput from '../hooks/useInput';
 
 function LoginInput({ login }) {
-  const [email, onEmailChange] = useInput("");
-  const [password, onPasswordChange] = useInput("");
+  const [email, onEmailChange] = useInput('');
+  const [password, onPasswordChange] = useInput('');
   return (
     <form className="flex flex-col">
       <div className="mb-4">
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-600"
-        >
-          Email
-        </label>
+        <div className="block text-sm font-medium text-gray-600">Email</div>
         <input
           type="email"
           className="mt-1 p-2 w-full border rounded-md focus:ring-blue-600 focus:border-blue-600 border-gray-300 text-gray-900"
@@ -23,12 +19,7 @@ function LoginInput({ login }) {
       </div>
 
       <div className="mb-4">
-        <label
-          htmlFor="password"
-          className="block text-sm font-medium text-gray-600"
-        >
-          Password
-        </label>
+        <div className="block text-sm font-medium text-gray-600">Password</div>
         <input
           type="password"
           className="mt-1 p-2 w-full border rounded-md focus:ring-blue-600 focus:border-blue-600 border-gray-300 text-gray-900"

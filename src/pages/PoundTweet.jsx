@@ -1,7 +1,8 @@
-import PoundInput from "../components/PoundInput";
-import LayoutPage from "../layouts/LayoutPage";
-import { useDispatch } from "react-redux";
-import { asyncAddPound } from "../states/pounds/action";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import PoundInput from '../components/PoundInput';
+import LayoutPage from '../layouts/LayoutPage';
+import { asyncAddPound } from '../states/pounds/action';
 
 function PoundTweet() {
   const dispatch = useDispatch();
