@@ -53,7 +53,6 @@ function asyncAddComment({ content, poundId }) {
     try {
       const newComment = await api.createComment({ content, poundId });
       dispatch(addCommentActionCreator(newComment));
-      console.log(newComment);
     } catch (error) {
       alert(error.message);
     }

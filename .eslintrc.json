@@ -19,6 +19,7 @@
         "react/forbid-prop-types": "off",
         "no-underscore-dangle": "off",
         "no-use-before-define": "off",
-        "import/no-extraneous-dependencies": "off"
+        "import/no-extraneous-dependencies": "off",
+        "no-alert": "off"
     }
 }

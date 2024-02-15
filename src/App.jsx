@@ -17,7 +17,6 @@ function App() {
   );
 
   const dispatch = useDispatch();
-  // console.log(test);
 
   useEffect(() => {
     // @TODO: dispatch async action to preload app
