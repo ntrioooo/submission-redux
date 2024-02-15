@@ -9,6 +9,11 @@ function poundDetailReducer(poundDetail = null, action = {}) {
   switch (action.type) {
     case ActionType.RECEIVE_POUND_DETAIL:
       return action.payload.poundDetail;
+    case ActionType.ADD_COMMENT:
+      return {
+        ...poundDetail,
+        comments: [action.payload.comment, ...poundDetail.comments],
+      };
     case ActionType.CLEAR_POUND_DETAIL:
       return null;
     case ActionType.TOGGLE_UPVOTE_POUND_DETAIL:

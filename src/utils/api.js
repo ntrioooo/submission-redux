@@ -222,7 +222,6 @@ const api = (() => {
       data: { vote },
     } = responseJSON;
 
-    console.log('up vote', vote);
     return vote;
   }
 

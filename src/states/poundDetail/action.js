@@ -8,6 +8,7 @@ import api from '../../utils/api';
 const ActionType = {
   RECEIVE_POUND_DETAIL: 'RECEIVE_POUND_DETAIL',
   CLEAR_POUND_DETAIL: 'CLEAR_POUND_DETAIL',
+  ADD_COMMENT: 'ADD_COMMENT',
   TOGGLE_UPVOTE_POUND_DETAIL: 'TOGGLE_UPVOTE_POUND_DETAIL',
   TOGGLE_DOWNVOTE_POUND_DETAIL: 'TOGGLE_DOWNVOTE_POUND_DETAIL',
   TOGGLE_NEUTRALVOTE_POUND_DETAIL: 'TOGGLE_NEUTRALVOTE_POUND_DETAIL',
@@ -123,6 +124,18 @@ function asyncToggleNeutralVotePoundDetail() {
     dispatch(hideLoading());
   };
 }
+function asyncAddComment({ content, poundId }) {
+  return async (dispatch) => {
+    dispatch(showLoading());
+    try {
+      const newComment = await api.createComment({ content, poundId });
+      dispatch(addCommentActionCreator(newComment));
+    } catch (error) {
+      alert(error.message);
+    }
+    dispatch(hideLoading());
+  };
+}
 
 export {
   ActionType,
@@ -136,4 +149,5 @@ export {
   asyncToggleDownVotePoundDetail,
   asyncToggleNeutralVotePoundDetail,
   asyncToggleUpVotePoundDetail,
+  asyncAddComment,
 };
