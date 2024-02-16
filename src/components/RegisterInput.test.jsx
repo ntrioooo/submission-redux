@@ -14,10 +14,7 @@ import {
 } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import matchers from '@testing-library/jest-dom/matchers';
 import RegisterInput from './RegisterInput';
-
-expect.extend(matchers);
 
 describe('RegisterInput component', () => {
   afterEach(() => {
@@ -57,7 +54,7 @@ describe('RegisterInput component', () => {
   it('should call login function when login button is clicked', async () => {
     // Arrange
     const mockRegister = vi.fn();
-    render(<RegisterInput login={mockRegister} />);
+    render(<RegisterInput register={mockRegister} />);
     const nameInput = await screen.getByPlaceholderText('Full Name');
     await userEvent.type(nameInput, 'john doe');
     const emailInput = await screen.getByPlaceholderText('johndoe@gmail.com');
@@ -71,8 +68,8 @@ describe('RegisterInput component', () => {
 
     // Assert
     expect(mockRegister).toBeCalledWith({
-      email: 'email@gmail.com',
       name: 'john doe',
+      email: 'email@gmail.com',
       password: 'password123',
     });
   });

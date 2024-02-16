@@ -13,10 +13,7 @@ import {
 } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import matchers from '@testing-library/jest-dom/matchers';
 import LoginInput from './LoginInput';
-
-expect.extend(matchers);
 
 describe('LoginInput component', () => {
   afterEach(() => {
@@ -58,7 +55,7 @@ describe('LoginInput component', () => {
 
     // Assert
     expect(mockLogin).toBeCalledWith({
-      id: 'email@gmail.com',
+      email: 'email@gmail.com',
       password: 'password123',
     });
   });
