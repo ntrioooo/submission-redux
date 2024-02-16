@@ -22,7 +22,7 @@ function LoginPage() {
       </div>
 
       <div className="flex-shrink-0 w-1/2 p-8">
-        <h1 className="text-3xl font-bold mb-4">Sign in to your account.</h1>
+        <h1 className="text-3xl font-bold mb-4">Sign in to your account</h1>
         <LoginInput login={onLogin} />
         <p className="text-sm font-light text-gray-700 dark:text-gray-400 mt-3">
           Don’t have an account yet?
