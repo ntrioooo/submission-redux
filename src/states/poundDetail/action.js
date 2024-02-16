@@ -74,7 +74,7 @@ function asyncReceivePoundDetail(id) {
       const poundDetail = await api.getPoundDetail(id);
       dispatch(receivePoundDetailActionCreator(poundDetail));
     } catch (error) {
-      alert(error);
+      alert(error.message);
     }
     dispatch(hideLoading());
   };
