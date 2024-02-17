@@ -11,6 +11,7 @@ describe('Login spec', () => {
   beforeEach(() => {
     cy.visit('http://localhost:5173/');
   });
+
   it('should display login page correctly', () => {
     cy.get('input[placeholder="johndoe@gmail.com"]').should('be.visible');
     cy.get('input[placeholder="********"]').should('be.visible');
